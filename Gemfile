@@ -30,6 +30,12 @@ gem "jbuilder"
 # Date Validator [https://github.com/codegram/date_validator]
 gem 'date_validator'
 
+# rubocop [https://rubocop.org]
+gem 'rubocop', '~> 1.52', require: false
+gem 'rubocop-capybara', '~> 2.18'
+gem 'rubocop-rails', '~> 2.19', '>= 2.19.1'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
