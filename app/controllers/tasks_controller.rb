@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controller responsible for managing tasks.
 class TasksController < ApplicationController
   before_action :fetch_task, only: %i[edit update destroy show]
 
@@ -5,8 +8,16 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def show
+    # Implement your show logic here
+  end
+
   def new
     @task = Task.new
+  end
+
+  def edit
+    # Implement your edit logic here
   end
 
   def create
@@ -34,7 +45,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :done) 
+    params.require(:task).permit(:title, :description, :done)
   end
 
   def fetch_task
