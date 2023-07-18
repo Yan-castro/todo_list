@@ -1,25 +1,24 @@
-<h1>Tasks</h1>
-<%= notice %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Done</th>
-      <th>Edit</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.done ?  'Completed' : 'Incomplete' %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td> <%= link_to "Show this task", task %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New Task', new_task_path %>
+<main>
+  <div class="">
+    <%= notice %>
+    <div class ='new_task'>
+      <%= turbo_frame_tag "new_task_link" do %>
+        <%= link_to "New_task", new_task_path, data: { turbo_frame: "new_task_link" }%>
+      <% end %>
+    </div>
+  </div>
+  <div class="tasks_table">
+    <tbody>
+      <% @tasks.each do |task| %>
+        <%= turbo_frame_tag task do %>
+          <div>
+            <span><%= task.title %> | </span>
+            <span><%= task.done ?  'Completed' : 'Incomplete' %> | </span>
+            <span><%= link_to 'Edit', edit_task_path(task) %> | </span>
+            <span> <%= link_to "Show this task", task %></span>
+          </div>
+        <% end %>
+      <% end %>
+    </tbody>
+  </div>
+</main>
