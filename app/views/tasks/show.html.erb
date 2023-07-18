@@ -1,10 +1,9 @@
-<h1>Task Details</h1>
-
-<p><strong>Title:</strong> <%= @task.title %></p>
-<p><strong>Description:</strong> <%= @task.description %></p>
-<p><strong>Status:</strong> <%= @task.done ? 'Completed' : 'Incomplete' %></p>
-
-<%= link_to 'Edit', edit_task_path(@task) %>
-<%= link_to 'Back', tasks_path %>
-
- <%= button_to "Destroy this task", @task, method: :delete %>
+<main class="container">
+  <%= link_to sanitize("&larr; Back to tasks"), tasks_path %>
+  <div class="header">
+    <h1>
+      <%= @task.title %>
+    </h1>
+    <%= @task.description %>
+  </div>
+</main>

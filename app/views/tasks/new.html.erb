@@ -1,4 +1,6 @@
-<h1>New Task</h1>
-
-<%= render "form", task: @task %>
-<%= link_to 'Back', tasks_path %>
+<main class="container">
+  <%= turbo_frame_tag "new_task_link" do %>
+    <%= link_to sanitize("&larr; Cancel"), tasks_path %>
+      <%= render "form", task: @task %>
+  <% end %>
+</main>

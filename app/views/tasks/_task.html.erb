@@ -1,0 +1,13 @@
+<div class="task">
+
+  <span class="task-title">
+    <%= link_to task.title, task_path(task) %>
+    <%= task.done ?  'Completed' : 'Incomplete' %>
+  </span>
+
+  <span class="task-actions">
+    <%= button_to "Delete", task_path(task), method: :delete %>
+    <%= link_to "Edit", edit_task_path(task) %>
+  </span>
+
+</div>
